@@ -1,8 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 import { Layout } from '../components/Layout';
-import { CharacterInfoPage } from '../pages/CharacterInfoPage';
-import { CharactersPage } from '../pages/CharactersPage';
+import { CharacterInfo } from '../pages/CharacterInfo';
+import { CharacterList } from '../pages/CharacterList';
 
 export const router = createBrowserRouter([
   {
@@ -11,11 +11,11 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <CharactersPage />
+        element: <CharacterList />
       },
       {
         path: 'character/:id',
-        element: <CharacterInfoPage />
+        element: <CharacterInfo />
       }
     ]
   }

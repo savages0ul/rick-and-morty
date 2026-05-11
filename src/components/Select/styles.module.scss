@@ -1,0 +1,132 @@
+.wrapper {
+  position: relative;
+}
+
+.large {
+  .trigger {
+    height: 56px;
+    padding: 0 40px 0 14px;
+    font-size: 16px;
+    border-radius: 8px;
+  }
+
+  .arrow {
+    right: 14px;
+    width: 10px;
+    height: 5px;
+  }
+
+  .dropdown {
+    border-radius: 8px;
+    margin-top: 8px;
+  }
+
+  .option {
+    padding: 14px 16px;
+    font-size: 16px;
+  }
+}
+
+.small {
+  .trigger {
+    height: 32px;
+    padding: 0 28px 0 10px;
+    font-size: 14px;
+    border-radius: 6px;
+  }
+
+  .arrow {
+    right: 10px;
+    width: 8px;
+    height: 4px;
+  }
+
+  .dropdown {
+    border-radius: 6px;
+    margin-top: 7px;
+  }
+
+  .option {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+}
+
+.trigger {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border: 1px solid #393939;
+  background: #fff;
+  cursor: pointer;
+  text-align: left;
+}
+
+.triggerContent {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
+}
+
+.placeholder {
+  color: #00000099;
+  font-family: Roboto;
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.value {
+  color: #00000099;
+  font-family: Roboto;
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.arrow {
+  position: absolute;
+  pointer-events: none;
+  color: rgba(0, 0, 0, 0.54);
+  transition: transform 0.2s ease;
+}
+
+.arrowOpen {
+  transform: rotate(180deg);
+}
+
+.dropdown {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #393939;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: #00000099;
+  font-family: Roboto;
+  font-weight: 400;
+
+  &:hover {
+    background: #0000000a;
+  }
+}

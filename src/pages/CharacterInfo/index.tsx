@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import ArrowIcon from '../../assets/icons/arrow.svg?react';
 import styles from './styles.module.scss';
 
-export const CharacterInfoPage = () => {
+export const CharacterInfo = () => {
   const navigate = useNavigate();
 
   return (

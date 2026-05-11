@@ -1,0 +1,19 @@
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.alive {
+  background-color: #12b800;
+}
+
+.dead {
+  background-color: #df0000;
+}
+
+.unknown {
+  background-color: #ff9900;
+}
