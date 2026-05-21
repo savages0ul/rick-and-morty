@@ -4,21 +4,21 @@ import ArrowSelectIcon from '../../assets/icons/arrowSelect.svg?react';
 import styles from './styles.module.scss';
 import type { SelectOption } from './types';
 
-interface Props {
+interface Props<T> {
   placeholder?: string;
-  options?: SelectOption[];
+  options: SelectOption<T>[];
   size?: 'large' | 'small';
-  value?: string;
-  onChange?: (value: string) => void;
+  value?: T;
+  onChange?: (value: T) => void;
 }
 
-export const Select = ({
+export const Select = <T,>({
   placeholder,
-  options = [],
+  options,
   size = 'large',
   value,
   onChange
-}: Props) => {
+}: Props<T>) => {
   const [isOpen, setIsOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -37,7 +37,7 @@ export const Select = ({
 
   const selected = options.find((opt) => opt.value === value);
 
-  const handleSelect = (optValue: string) => {
+  const handleSelect = (optValue: T) => {
     onChange?.(optValue);
     setIsOpen(false);
   };
@@ -72,7 +72,7 @@ export const Select = ({
         <ul className={styles.dropdown}>
           {options.map((opt) => (
             <li
-              key={opt.value}
+              key={String(opt.value)}
               className={styles.option}
               onClick={() => handleSelect(opt.value)}
             >
