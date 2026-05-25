@@ -1,4 +1,5 @@
-import LogoIcon from '../../assets/icons/logo.svg?react';
+import { LogoIcon } from '@/assets/icons';
+
 import styles from './styles.module.scss';
 
 export const Header = () => {

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
-import ArrowSelectIcon from '../../assets/icons/arrowSelect.svg?react';
+import { ArrowSelectIcon } from '@/assets/icons';
+
 import styles from './styles.module.scss';
 import type { SelectOption } from './types';
 
