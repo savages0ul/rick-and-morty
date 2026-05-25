@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
-import ArrowIcon from '../../assets/icons/arrow.svg?react';
+import { ArrowIcon } from '@/assets/icons';
+
 import styles from './styles.module.scss';
 
 export const CharacterInfo = () => {

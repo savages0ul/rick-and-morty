@@ -1,5 +1,5 @@
-import ClearIcon from '../../assets/icons/clear.svg?react';
-import SearchIcon from '../../assets/icons/search.svg?react';
+import { ClearIcon, SearchIcon } from '@/assets/icons';
+
 import { cn } from '../../helpers/cn';
 import styles from './styles.module.scss';
 
