@@ -1,18 +1,17 @@
 import { useState } from 'react';
 
-import mainImg from '../../assets/images/main.png';
-import { Select } from '../../components/Select';
-import {
-  GENDER_OPTIONS,
-  SPECIES_OPTIONS,
-  STATUS_OPTIONS
-} from '../../components/Select/mocks';
-import { TextField } from '../../components/TextField';
+import mainImg from '@/assets/images/main.png';
+import { Select } from '@/components/Select';
+import { TextField } from '@/components/TextField';
+import { GENDER_OPTIONS, STATUS_OPTIONS } from '@/constants/character';
+import { MOCK_CHARACTERS } from '@/mocks/characters';
+import { SPECIES_OPTIONS } from '@/mocks/filterOptions';
+import { CharacterCard } from '@/widgets/CharacterCard';
+
 import styles from './styles.module.scss';
 
 export const CharacterList = () => {
   const [name, setName] = useState('');
-  const [formName, setFormName] = useState('');
   const [species, setSpecies] = useState<string>();
   const [gender, setGender] = useState<string>();
   const [status, setStatus] = useState<string>();
@@ -52,14 +51,13 @@ export const CharacterList = () => {
           onChange={setStatus}
         />
       </div>
-      {/* TODO: для теста */}
-      <div className={styles.formTest}>
-        <TextField
-          variant='underlined'
-          value={formName}
-          onChange={setFormName}
-          placeholder='Rick Sanchez'
-        />
+      <div className={styles.cardList}>
+        {MOCK_CHARACTERS.map((character) => (
+          <CharacterCard
+            key={character.id}
+            character={character}
+          />
+        ))}
       </div>
     </div>
   );

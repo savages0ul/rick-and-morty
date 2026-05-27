@@ -1,6 +1,6 @@
 type ClassValue = string | Record<string, unknown> | undefined | null | false;
 
-export const cn = (...args: ClassValue[]): string => {
+export const classNames = (...args: ClassValue[]): string => {
   const classes: string[] = [];
 
   for (const arg of args) {

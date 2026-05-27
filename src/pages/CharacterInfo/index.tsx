@@ -10,6 +10,7 @@ export const CharacterInfo = () => {
   return (
     <div className={styles.page}>
       <button
+        type='button'
         className={styles.backButton}
         onClick={() => navigate(-1)}
       >

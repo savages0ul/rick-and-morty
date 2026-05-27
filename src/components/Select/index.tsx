@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 import { ArrowSelectIcon } from '@/assets/icons';
+import { classNames } from '@/helpers/classNames';
 
 import styles from './styles.module.scss';
 import type { SelectOption } from './types';
@@ -21,6 +22,7 @@ export const Select = <T,>({
   onChange
 }: Props<T>) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [focusedIndex, setFocusedIndex] = useState(-1);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -43,15 +45,54 @@ export const Select = <T,>({
     setIsOpen(false);
   };
 
+  const handleTriggerClick = () => {
+    if (!isOpen) setFocusedIndex(-1);
+    setIsOpen((prev) => !prev);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (!isOpen) {
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        const currentIndex = options.findIndex((opt) => opt.value === value);
+        setFocusedIndex(currentIndex >= 0 ? currentIndex : 0);
+        setIsOpen(true);
+      }
+      return;
+    }
+    switch (e.key) {
+      case 'ArrowDown':
+        e.preventDefault();
+        setFocusedIndex((prev) => Math.min(prev + 1, options.length - 1));
+        break;
+      case 'ArrowUp':
+        e.preventDefault();
+        setFocusedIndex((prev) => Math.max(prev - 1, 0));
+        break;
+      case 'Enter':
+      case ' ':
+        e.preventDefault();
+        if (focusedIndex >= 0) handleSelect(options[focusedIndex].value);
+        break;
+      case 'Escape':
+        e.preventDefault();
+        setIsOpen(false);
+        break;
+    }
+  };
+
   return (
     <div
       ref={wrapperRef}
-      className={`${styles.wrapper} ${styles[size]}`}
+      className={classNames(styles.wrapper, styles[size])}
     >
       <button
         type='button'
         className={styles.trigger}
-        onClick={() => setIsOpen((prev) => !prev)}
+        onClick={handleTriggerClick}
+        onKeyDown={handleKeyDown}
+        aria-haspopup='listbox'
+        aria-expanded={isOpen}
       >
         <span className={styles.triggerContent}>
           {selected ? (
@@ -66,15 +107,23 @@ export const Select = <T,>({
           )}
         </span>
         <ArrowSelectIcon
-          className={`${styles.arrow} ${isOpen ? styles.arrowOpen : ''}`}
+          className={classNames(styles.arrow, isOpen && styles.arrowOpen)}
         />
       </button>
       {isOpen && (
-        <ul className={styles.dropdown}>
-          {options.map((opt) => (
+        <ul
+          role='listbox'
+          className={styles.dropdown}
+        >
+          {options.map((opt, index) => (
             <li
               key={String(opt.value)}
-              className={styles.option}
+              role='option'
+              aria-selected={opt.value === value}
+              className={classNames(
+                styles.option,
+                index === focusedIndex && styles.focused
+              )}
               onClick={() => handleSelect(opt.value)}
             >
               {opt.label}
