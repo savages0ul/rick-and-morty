@@ -1,0 +1,137 @@
+.cardLink {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  gap: 13px;
+  padding: 7px;
+  border-radius: 6px;
+  background: $color-white;
+  box-shadow: 1px 1px 4px 0 #00000040;
+}
+
+.image {
+  width: 240px;
+  height: 234px;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+
+  &.editing {
+    margin-bottom: 4px;
+  }
+}
+
+.nameWrapper {
+  flex: 1;
+  min-width: 0;
+}
+
+.name {
+  display: block;
+
+  @include text-truncate;
+  @include type-heading;
+
+  color: $color-text-primary;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.editButton {
+  @include icon-button;
+
+  position: relative;
+  z-index: 1;
+  width: 17px;
+  height: 17px;
+  color: #000;
+  flex-shrink: 0;
+  visibility: hidden;
+
+  svg {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+.card:hover .editButton {
+  visibility: visible;
+}
+
+.cancelButton,
+.saveButton {
+  @include icon-button;
+
+  width: 24px;
+  height: 24px;
+  color: #000;
+  flex-shrink: 0;
+}
+
+.cancelButton svg {
+  width: 10px;
+  height: 10px;
+}
+
+.saveButton svg {
+  width: 13px;
+  height: 9px;
+}
+
+.locationField {
+  width: 115px;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  @include type-label;
+
+  color: $color-text-label;
+}
+
+.value {
+  @include text-truncate;
+  @include type-body;
+
+  color: $color-text-secondary;
+}
+
+.valueWithIcon {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}

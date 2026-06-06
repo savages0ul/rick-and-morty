@@ -1,12 +1,12 @@
-import clsx from 'clsx';
+import { classNames } from '@/helpers/classNames';
+import type { CharacterStatus } from '@/types/character';
 
 import styles from './styles.module.scss';
-import type { Status } from './types';
 
 interface Props {
-  status: Status;
+  status: CharacterStatus;
 }
 
 export const StatusDot = ({ status }: Props) => (
-  <span className={clsx(styles.dot, styles[status])} />
+  <span className={classNames(styles.dot, styles[status])} />
 );

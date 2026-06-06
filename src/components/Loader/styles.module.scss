@@ -24,11 +24,8 @@
 }
 
 .caption {
-  font-family: Karla;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 100%;
-  letter-spacing: 0%;
+  @include type-karla-ui;
+
   text-align: center;
   color: #212121;
 }

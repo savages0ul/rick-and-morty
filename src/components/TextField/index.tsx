@@ -1,10 +1,12 @@
-import { ClearIcon, SearchIcon } from '@/assets/icons';
+import { CloseIcon, SearchIcon } from '@/assets/icons';
+import { classNames } from '@/helpers/classNames';
 
-import { cn } from '../../helpers/cn';
 import styles from './styles.module.scss';
 
 interface Props {
   variant?: 'bordered' | 'underlined';
+  size?: 'large' | 'small';
+  className?: string;
   value: string;
   onChange: (value: string) => void;
   placeholder?: string;
@@ -12,12 +14,21 @@ interface Props {
 
 export const TextField = ({
   variant = 'bordered',
+  size = 'large',
+  className,
   value,
   onChange,
   placeholder
 }: Props) => {
   return (
-    <div className={cn(styles.wrapper, styles[variant])}>
+    <div
+      className={classNames(
+        styles.wrapper,
+        styles[variant],
+        styles[size],
+        className
+      )}
+    >
       {variant === 'bordered' && <SearchIcon className={styles.icon} />}
       <input
         type='text'
@@ -32,7 +43,7 @@ export const TextField = ({
           onClick={() => onChange('')}
           type='button'
         >
-          <ClearIcon />
+          <CloseIcon />
         </button>
       )}
     </div>

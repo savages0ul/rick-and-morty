@@ -29,7 +29,8 @@
 
 .small {
   .trigger {
-    height: 32px;
+    height: 21px;
+    width: max-content;
     padding: 0 28px 0 10px;
     font-size: 14px;
     border-radius: 6px;
@@ -42,13 +43,15 @@
   }
 
   .dropdown {
+    width: 94px;
     border-radius: 6px;
     margin-top: 7px;
   }
 
   .option {
-    padding: 8px 10px;
+    padding: 5px;
     font-size: 14px;
+    line-height: 14px;
   }
 }
 
@@ -58,10 +61,14 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  border: 1px solid #393939;
-  background: #fff;
+  border: 1px solid $color-border;
+  background: $color-white;
   cursor: pointer;
   text-align: left;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 .triggerContent {
@@ -71,22 +78,13 @@
   overflow: hidden;
 }
 
-.placeholder {
-  color: #00000099;
-  font-family: Roboto;
-  font-weight: 400;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
+.placeholder,
 .value {
-  color: #00000099;
-  font-family: Roboto;
+  @include text-truncate;
+
+  font-family: $font-roboto;
   font-weight: 400;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  color: $color-text-secondary;
 }
 
 .icon {
@@ -98,7 +96,7 @@
 .arrow {
   position: absolute;
   pointer-events: none;
-  color: rgba(0, 0, 0, 0.54);
+  color: rgb(0 0 0 / 54%);
   transition: transform 0.2s ease;
 }
 
@@ -110,8 +108,8 @@
   position: absolute;
   z-index: 10;
   width: 100%;
-  background: #fff;
-  border: 1px solid #393939;
+  background: $color-white;
+  border: 1px solid $color-border;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -122,11 +120,12 @@
   align-items: center;
   gap: 8px;
   cursor: pointer;
-  color: #00000099;
-  font-family: Roboto;
+  font-family: $font-roboto;
   font-weight: 400;
+  color: $color-text-secondary;
 
-  &:hover {
+  &:hover,
+  &.focused {
     background: #0000000a;
   }
 }
