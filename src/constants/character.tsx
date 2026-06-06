@@ -1,10 +1,10 @@
-import type { SelectOption } from '@/components/Select/types';
-import { StatusDot } from '@/components/StatusDot';
+import { StatusDot } from '@/components';
+import type { SelectOption } from '@/components';
 import type { CharacterStatus } from '@/types/character';
 
 export const STATUS_OPTIONS: SelectOption<CharacterStatus>[] = [
-  { value: 'Alive', label: 'Alive', icon: <StatusDot status='Alive' /> },
-  { value: 'Dead', label: 'Dead', icon: <StatusDot status='Dead' /> },
+  { value: 'alive', label: 'Alive', icon: <StatusDot status='alive' /> },
+  { value: 'dead', label: 'Dead', icon: <StatusDot status='dead' /> },
   { value: 'unknown', label: 'Unknown', icon: <StatusDot status='unknown' /> }
 ];
 

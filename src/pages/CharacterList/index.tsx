@@ -1,8 +1,7 @@
 import { useState } from 'react';
 
 import mainImg from '@/assets/images/main.png';
-import { Select } from '@/components/Select';
-import { TextField } from '@/components/TextField';
+import { Select, TextField } from '@/components';
 import { GENDER_OPTIONS, STATUS_OPTIONS } from '@/constants/character';
 import { MOCK_CHARACTERS } from '@/mocks/characters';
 import { SPECIES_OPTIONS } from '@/mocks/filterOptions';

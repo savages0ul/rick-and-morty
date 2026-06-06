@@ -3,7 +3,7 @@ export interface CharacterLocation {
   url: string;
 }
 
-export type CharacterStatus = 'Alive' | 'Dead' | 'unknown';
+export type CharacterStatus = 'alive' | 'dead' | 'unknown';
 
 export interface Character {
   id: number;

@@ -70,15 +70,16 @@
   height: 17px;
   color: #000;
   flex-shrink: 0;
+  visibility: hidden;
 
   svg {
     width: 13px;
     height: 13px;
   }
+}
 
-  &.hidden {
-    visibility: hidden;
-  }
+.card:hover .editButton {
+  visibility: visible;
 }
 
 .cancelButton,

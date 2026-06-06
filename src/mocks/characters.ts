@@ -6,7 +6,7 @@ export const MOCK_CHARACTERS: Character[] = [
   {
     id: 1,
     name: 'Rick Sanchez',
-    status: 'Alive',
+    status: 'alive',
     species: 'Human',
     type: '',
     gender: 'Male',
@@ -20,7 +20,7 @@ export const MOCK_CHARACTERS: Character[] = [
   {
     id: 2,
     name: 'Morty Smith',
-    status: 'Dead',
+    status: 'dead',
     species: 'Human',
     type: '',
     gender: 'Male',

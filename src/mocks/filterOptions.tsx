@@ -1,5 +1,5 @@
 // TODO: удалить файл после интеграции с бэком
-import type { SelectOption } from '@/components/Select/types';
+import type { SelectOption } from '@/components';
 
 export const SPECIES_OPTIONS: SelectOption[] = [
   { value: 'human', label: 'Human' },

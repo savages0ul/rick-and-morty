@@ -8,5 +8,5 @@ interface Props {
 }
 
 export const StatusDot = ({ status }: Props) => (
-  <span className={classNames(styles.dot, styles[status.toLowerCase()])} />
+  <span className={classNames(styles.dot, styles[status])} />
 );

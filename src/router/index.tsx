@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-import { Layout } from '@/components/Layout';
+import { Layout } from '@/components';
 import { CharacterInfo } from '@/pages/CharacterInfo';
 import { CharacterList } from '@/pages/CharacterList';
 

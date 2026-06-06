@@ -3,9 +3,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { CheckMarkIcon, CloseIcon, EditIcon } from '@/assets/icons';
-import { Select } from '@/components/Select';
-import { StatusDot } from '@/components/StatusDot';
-import { TextField } from '@/components/TextField';
+import { Select, StatusDot, TextField } from '@/components';
 import { STATUS_OPTIONS } from '@/constants/character';
 import { classNames } from '@/helpers/classNames';
 import type { Character, CharacterStatus } from '@/types/character';
@@ -20,7 +18,6 @@ interface Props {
 
 export const CharacterCard = ({ character, onSave }: Props) => {
   const [isEditing, setIsEditing] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
   const [name, setName] = useState(character.name);
   const [locationName, setLocationName] = useState(character.location.name);
   const [status, setStatus] = useState<CharacterStatus>(character.status);
@@ -41,11 +38,7 @@ export const CharacterCard = ({ character, onSave }: Props) => {
     STATUS_OPTIONS.find((o) => o.value === status)?.label ?? status;
 
   return (
-    <div
-      className={styles.card}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+    <div className={styles.card}>
       {!isEditing && (
         <Link
           to={`/character/${character.id}`}
@@ -93,10 +86,7 @@ export const CharacterCard = ({ character, onSave }: Props) => {
           ) : (
             <button
               type='button'
-              className={classNames(
-                styles.editButton,
-                !isHovered && styles.hidden
-              )}
+              className={styles.editButton}
               onClick={() => setIsEditing(true)}
               aria-label='Edit'
             >
@@ -130,7 +120,7 @@ export const CharacterCard = ({ character, onSave }: Props) => {
           <div className={styles.field}>
             <span className={styles.label}>Status</span>
             {isEditing ? (
-              <Select<CharacterStatus>
+              <Select
                 options={STATUS_OPTIONS}
                 value={status}
                 onChange={setStatus}
