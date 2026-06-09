@@ -2,8 +2,7 @@ import { useState } from 'react';
 
 import mainImg from '@/assets/images/main.png';
 import { MOCK_CHARACTERS } from '@/mocks/characters';
-import { CharacterCard, FiltersPanel } from '@/widgets';
-import type { FilterValues } from '@/widgets';
+import { CharacterCard, type FilterValues, FiltersPanel } from '@/widgets';
 
 import styles from './styles.module.scss';
 
