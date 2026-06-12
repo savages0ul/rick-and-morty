@@ -1,5 +1,5 @@
-import { classNames } from '@/helpers/classNames';
-import type { CharacterStatus } from '@/types/character';
+import { classNames } from '@/helpers';
+import type { CharacterStatus } from '@/types';
 
 import styles from './styles.module.scss';
 

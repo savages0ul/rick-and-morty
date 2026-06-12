@@ -1,6 +1,6 @@
 import { StatusDot } from '@/components';
 import type { SelectOption } from '@/components';
-import type { CharacterStatus } from '@/types/character';
+import type { CharacterStatus } from '@/types';
 
 export const STATUS_OPTIONS: SelectOption<CharacterStatus>[] = [
   { value: 'alive', label: 'Alive', icon: <StatusDot status='alive' /> },

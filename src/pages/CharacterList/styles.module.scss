@@ -13,9 +13,15 @@
 }
 
 .cardList {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
   margin-top: 32px;
-  max-width: 508px;
+}
+
+.empty {
+  margin-top: 32px;
+  padding: 32px;
+  color: $color-text-secondary;
+  text-align: center;
 }

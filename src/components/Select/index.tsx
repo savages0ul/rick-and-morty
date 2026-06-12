@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 import { ArrowSelectIcon } from '@/assets/icons';
-import { classNames } from '@/helpers/classNames';
+import { classNames } from '@/helpers';
 
 import styles from './styles.module.scss';
 import type { SelectOption } from './types';

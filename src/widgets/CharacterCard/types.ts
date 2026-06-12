@@ -1,4 +1,4 @@
-import type { CharacterStatus } from '@/types/character';
+import type { CharacterStatus } from '@/types';
 
 export interface EditableFields {
   name: string;
