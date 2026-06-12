@@ -21,24 +21,24 @@ export function useLoadCharacters() {
   const debouncedName = useDebounce(filters.name, DEBOUNCE_DELAY);
 
   const loadCharacters = useCallback(
-    (signal: AbortSignal) => {
+    async (signal: AbortSignal) => {
       setLoading(true);
 
-      return getCharacters(
-        { name: debouncedName, species, gender, status, page },
-        signal
-      )
-        .then((data) => {
-          setCharacters(data);
-          setLoading(false);
-        })
-        .catch((error) => {
-          if (axios.isCancel(error)) return;
+      try {
+        const data = await getCharacters(
+          { name: debouncedName, species, gender, status, page },
+          signal
+        );
 
-          setCharacters([]);
-          setLoading(false);
-          toast.error(getErrorMessage(error));
-        });
+        setCharacters(data);
+        setLoading(false);
+      } catch (error) {
+        if (axios.isCancel(error)) return;
+
+        setCharacters([]);
+        setLoading(false);
+        toast.error(getErrorMessage(error));
+      }
     },
     [debouncedName, species, gender, status, page]
   );
