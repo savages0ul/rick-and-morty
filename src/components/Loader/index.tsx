@@ -7,6 +7,7 @@ import styles from './styles.module.scss';
 interface Props {
   size?: 'small' | 'large';
   caption?: string;
+  className?: string;
 }
 
 const PortalBySize = {
@@ -14,11 +15,11 @@ const PortalBySize = {
   large: PortalBigIcon
 };
 
-export const Loader = ({ size = 'large', caption }: Props) => {
+export const Loader = ({ size = 'large', caption, className }: Props) => {
   const Portal = PortalBySize[size];
 
   return (
-    <div className={classNames(styles.loader, styles[size])}>
+    <div className={classNames(styles.loader, styles[size], className)}>
       <Portal className={styles.portal} />
       {caption && <p className={styles.caption}>{caption}</p>}
     </div>
