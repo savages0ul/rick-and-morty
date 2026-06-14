@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 
 import { CheckMarkIcon, CloseIcon, EditIcon } from '@/assets/icons';
 import { Select, StatusDot, TextField } from '@/components';
-import { STATUS_OPTIONS } from '@/constants/character';
-import { classNames } from '@/helpers/classNames';
-import type { Character, CharacterStatus } from '@/types/character';
+import { STATUS_OPTIONS } from '@/constants';
+import { classNames } from '@/helpers';
+import type { Character, CharacterStatus } from '@/types';
 
 import styles from './styles.module.scss';
 import type { EditableFields } from './types';

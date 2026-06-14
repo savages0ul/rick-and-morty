@@ -1,5 +1,5 @@
 import { CloseIcon, SearchIcon } from '@/assets/icons';
-import { classNames } from '@/helpers/classNames';
+import { classNames } from '@/helpers';
 
 import styles from './styles.module.scss';
 

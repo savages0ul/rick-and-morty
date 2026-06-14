@@ -7,13 +7,13 @@
 }
 
 .alive {
-  background-color: #12b800;
+  background-color: $color-success;
 }
 
 .dead {
-  background-color: #df0000;
+  background-color: $color-error;
 }
 
 .unknown {
-  background-color: #f90;
+  background-color: $color-warning;
 }

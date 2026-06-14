@@ -1,9 +1,5 @@
 import { Select, TextField } from '@/components';
-import {
-  GENDER_OPTIONS,
-  SPECIES_OPTIONS,
-  STATUS_OPTIONS
-} from '@/constants/character';
+import { GENDER_OPTIONS, SPECIES_OPTIONS, STATUS_OPTIONS } from '@/constants';
 
 import styles from './styles.module.scss';
 import type { FilterValues } from './types';

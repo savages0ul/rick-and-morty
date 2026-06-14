@@ -1,6 +1,6 @@
 import PortalBigIcon from '@/assets/images/portal-big.svg?react';
 import PortalIcon from '@/assets/images/portal.svg?react';
-import { classNames } from '@/helpers/classNames';
+import { classNames } from '@/helpers';
 
 import styles from './styles.module.scss';
 
